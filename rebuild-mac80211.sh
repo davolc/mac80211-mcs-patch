@@ -23,6 +23,12 @@ fi
 KVER_BASE="${KVER%%-*}"  # e.g. 6.19.8
 MAJOR="${KVER_BASE%%.*}" # e.g. 6
 
+# Fix naming scheme for base 7.0.0 kernels
+if [[ "$KVER_BASE" == "7.0.0" ]]; then
+    KVER_BASE="7.0"
+    fi
+    
+
 echo "mac80211-patch: downloading kernel $KVER_BASE source..."
 TARBALL="linux-$KVER_BASE.tar.xz"
 URL="https://cdn.kernel.org/pub/linux/kernel/v${MAJOR}.x/$TARBALL"
